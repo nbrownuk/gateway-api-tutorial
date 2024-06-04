@@ -1,0 +1,15 @@
+# httproute.yaml
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: nginxhello
+spec:
+  parentRefs:
+    - name: http-gw
+  hostnames:
+    - 172-18-0-3.nip.io
+  rules:
+    - backendRefs:
+        - name: nginxhello
+          port: 80
